@@ -46,25 +46,10 @@ void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern stack_t *head;
-
-void nop(stack_t **node, unsigned int line_number);
-void push_stack(stack_t **node, unsigned int line_number);
+void print_top(stack_t **node, unsigned int line);
+void nop(stack_t **node, unsigned int line);
+void push_stack(stack_t **node, unsigned int line);
+void print_stack(stack_t **node, unsigned int line);
+void mul_top(stack_t **node, unsigned int line);
 void find_function(char *opcode, char *value, unsigned int line_number);
-void print_stack(stack_t **node, unsigned int line_number);
-void print_top(stack_t **node, unsigned int line_number);
-void pop_top(stack_t **node, unsigned int line_number);
-void swap_top(stack_t **node, unsigned int line_number);
-void pass_string(char *str, unsigned int line_number);
-void free_stack(void);
-void pass_string(char *str, unsigned int line_number);
-void add_top(stack_t **node, unsigned int line_number);
-void sub_top(stack_t **node, unsigned int line_number);
-void div_top(stack_t **node, unsigned int line_number);
-void mul_top(stack_t **node, unsigned int line_number);
-void mod_top(stack_t **node, unsigned int line_number);
-void print_char(stack_t **node, unsigned int line_number);
-void print_string(stack_t **node, unsigned int line_number);
-void rotl(stack_t **node, unsigned int line_number);
-void rotr(stack_t **node, unsigned int line_number);
-
 #endif
