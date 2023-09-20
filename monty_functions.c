@@ -1,30 +1,18 @@
 #include "monty.h"
 
 /**
- * nop - Does nothing.
+ * print_top
  *
- * @node: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of the opcode.
+ * @node:
+ * @line:
  */
-void nop(stack_t **node, unsigned int line_number)
+void print_top(stack_t **node, unsigned int line)
 {
-	(void)node;
-	(void)line_number;
-}
-
-/**
- * print_top - Prints the top node of the stack.
- *
- * @node: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of the opcode.
- */
-void print_top(stack_t **node, unsigned int line_number)
-{
-	(void)line_number;
+	(void)line;
 
 	if (node == NULL || *node == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -32,17 +20,17 @@ void print_top(stack_t **node, unsigned int line_number)
 }
 
 /**
- * push_stack - Adds a node to the stack front.
+ * push_stack
  *
- * @node: Pointer to the new node.
- * @line_number: Interger representing the line number of the opcode.
+ * @node:
+ * @line:
  */
-void push_stack(stack_t **node, unsigned int line_number)
+void push_stack(stack_t **node, unsigned int line)
 {
 	if (node == NULL || *node == NULL)
 		exit(EXIT_FAILURE);
 
-	(void)line_number;
+	(void)line;
 
 	(*node)->prev = NULL;
 	(*node)->next = head;
@@ -52,18 +40,18 @@ void push_stack(stack_t **node, unsigned int line_number)
 }
 
 /**
- * print_stack - print a doubly linked lists content
+ * print_stack
  *
  *
- * @node: pointer to the head of the list to print
- * @line_number: Interger representing the line number of the opcode.
+ * @node:
+ * @line:
  */
 
-void print_stack(stack_t **node, unsigned int line_number)
+void print_stack(stack_t **node, unsigned int line)
 {
 	stack_t *temp = *node;
 
-	(void)line_number;
+	(void)line;
 	if (node == NULL)
 		exit(EXIT_FAILURE);
 
@@ -75,17 +63,17 @@ void print_stack(stack_t **node, unsigned int line_number)
 }
 
 /**
- * mul_top - divides the top two elements of the stack.
- * @node: Pointer to a pointer pointing to top node.
- * @line_number: Interger representing the line number of the opcode.
+ * mul_top
+ * @node:
+ * @line:
  */
-void mul_top(stack_t **node, unsigned int line_number)
+void mul_top(stack_t **node, unsigned int line)
 {
 	int mul;
 
 	if (*node == NULL || (*node)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -96,3 +84,14 @@ void mul_top(stack_t **node, unsigned int line_number)
 	(*node)->prev = NULL;
 }
 
+/**
+ * nop
+ *
+ * @node:
+ * @line:
+ */
+void nop(stack_t **node, unsigned int line)
+{
+	(void)node;
+	(void)line;
+}
